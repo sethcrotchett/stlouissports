@@ -1,3 +1,4 @@
+'use strict';
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -23,7 +24,7 @@ angular.module('stlsports', ['ionic', 'stlsports.services', 'stlsports.controlle
       templateUrl: "templates/tabs.html"
     })
 
-    // the pet tab has its own child nav-view and history
+    // the teams tab has its own child nav-view and history
     .state('tab.team-index', {
       url: '/teams',
       views: {
@@ -34,12 +35,12 @@ angular.module('stlsports', ['ionic', 'stlsports.services', 'stlsports.controlle
       }
     })
 
-    .state('tab.pet-detail', {
-      url: '/pet/:petId',
+    .state('tab.team-detail', {
+      url: '/team/:teamId',
       views: {
-        'pets-tab': {
-          templateUrl: 'templates/pet-detail.html',
-          controller: 'PetDetailCtrl'
+        'teams-tab': {
+          templateUrl: 'templates/team-detail.html',
+          controller: 'TeamDetailCtrl'
         }
       }
     })

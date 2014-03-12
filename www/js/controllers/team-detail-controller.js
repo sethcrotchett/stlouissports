@@ -2,23 +2,21 @@
 
 angular.module('stlsports.controllers')
 
-
 // A simple controller that shows a tapped item's data
 .controller('TeamDetailCtrl',  
-   function($scope, $stateParams, CardinalsService) {
-  // "Pets" is a service returning mock data (services.js)
-  //$scope.cardinals = CardinalsService.get($stateParams.teamId);
-	$scope.cardinals;
-	  $scope.status;
-	  getCardinals();
+   function($scope, $stateParams, TeamService) {
 
-	  function getCardinals() {
-		  CardinalsService.all()
+	  $scope.team;
+	  $scope.status;
+	  getTeamInfo();
+
+	  function getTeamInfo() {
+		  TeamService.get($stateParams.sport, $stateParams.league, $stateParams.teamId)
 	          .success(function (data) {
-	              $scope.cardinals = data.sports[0].leagues[0].teams[0];
+	              $scope.team = data.sports[0].leagues[0].teams[0];
 	          })
 	          .error(function (error) {
-	              $scope.status = 'Unable to load customer data: ' + error.message;
+	              $scope.status = 'Unable to load team data: ' + error.message;
 	          });
 	  };
 });

@@ -37,6 +37,16 @@ angular.module('stlsports', ['ionic', 'stlsports.services', 'stlsports.controlle
         }
       }
     })
+    
+    .state('tab.news-index', {
+      url: '/:sport/:league/teams/:teamId/news',
+      views: {
+        'teams-tab': {
+          templateUrl: 'templates/news-index.html',
+          controller: 'NewsIndexCtrl'
+        }
+      }
+    })
 
     .state('tab.adopt', {
       url: '/adopt',
